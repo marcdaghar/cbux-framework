@@ -1,0 +1,18 @@
+﻿# Installation locale
+pip install -r requirements.txt
+
+# Lancement de l'API de taux
+python src/api/api_taux.py
+
+# Lancement du tableau de bord
+streamlit run src/dashboard.py
+
+# Exécution des tests
+pytest tests/ -v
+
+# Conteneurisation
+docker build -t cbux .
+docker-compose up -d
+
+# Vérification
+curl http://localhost:5000/api/v1/exchange-rate?currency=X
